@@ -31,7 +31,6 @@ static const Rule rules[] = {
 	{ "qutebrowser",		NULL,	  NULL,			  1,		 0,          0,           1,        -1 },
 	{ "Google-chrome",		NULL,	  NULL,			  1,		 0,          0,           1,        -1 },
 	{ "Pcmanfm",			NULL,	  NULL,			  2,		 0,          0,           0,        -1 },
-	{ "st-256color",   		NULL,     NULL,           0,         0,          1,           0,        -1 },
 	{ "URxvt",				NULL,     NULL,           0,         0,          1,           0,        -1 },
 	{ NULL,					NULL,     "Event Tester", 0,         0,          0,           1,        -1 }, /* xev */
 };
@@ -63,8 +62,7 @@ static const Layout layouts[] = {
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-i", "-p", "open", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 static const char *passcmd[] = { "passmenu", "-i", "-p", "pass", "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
- static const char *termcmd[]  = { "st", "-e", "tmux", NULL };
-// static const char *termcmd[]  = { "urxvt", NULL };
+static const char *termcmd[]  = { "urxvt", NULL };
 
 #include <X11/XF86keysym.h>
 #include "shiftview.c"
@@ -109,6 +107,7 @@ static Key keys[] = {
 	{ 0, XF86XK_MonBrightnessUp,				spawn,		   SHCMD("xbacklight -inc 10") },
 	{ 0, XF86XK_MonBrightnessDown,				spawn,		   SHCMD("xbacklight -dec 10") },
 	{ 0, XK_Print,								spawn,		   SHCMD("maim | tee ~/lib/pics/$(hostnamectl hostname)_$(date +%s).png | xclip -selection clipboard -t image/png") },
+	{ MODKEY, XK_Print,							spawn,		   SHCMD("maim -s | tee ~/lib/pics/$(hostnamectl hostname)_$(date +%s).png | xclip -selection clipboard -t image/png") },
 };
 
 /* button definitions */
