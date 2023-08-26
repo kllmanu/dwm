@@ -31,6 +31,7 @@ static const Rule rules[] = {
 	{ "qutebrowser",		NULL,	  NULL,			  1,		 0,          0,           1,        -1 },
 	{ "Google-chrome",		NULL,	  NULL,			  1,		 0,          0,           1,        -1 },
 	{ "Pcmanfm",			NULL,	  NULL,			  2,		 0,          0,           0,        -1 },
+	{ "Steam",				NULL,	  NULL,			  8,		 0,          0,           0,        -1 },
 	{ "URxvt",				NULL,     NULL,           0,         0,          1,           0,        -1 },
 	{ NULL,					NULL,     "Event Tester", 0,         0,          0,           1,        -1 }, /* xev */
 };
