@@ -107,8 +107,8 @@ static Key keys[] = {
 	{ 0, XF86XK_AudioMute,						spawn,		   SHCMD("amixer set Master toggle") },
 	{ 0, XF86XK_MonBrightnessUp,				spawn,		   SHCMD("xbacklight -inc 10") },
 	{ 0, XF86XK_MonBrightnessDown,				spawn,		   SHCMD("xbacklight -dec 10") },
-	{ 0, XK_Print,								spawn,		   SHCMD("maim | tee ~/lib/pics/$(hostnamectl hostname)_$(date +%s).png | xclip -selection clipboard -t image/png") },
-	{ MODKEY, XK_Print,							spawn,		   SHCMD("maim -s | tee ~/lib/pics/$(hostnamectl hostname)_$(date +%s).png | xclip -selection clipboard -t image/png") },
+	{ 0, XK_Print,								spawn,		   SHCMD("maim | tee $(xdg-user-dir PICTURES)/$(hostnamectl hostname)_$(date +%s).png | xclip -selection clipboard -t image/png") },
+	{ MODKEY, XK_Print,							spawn,		   SHCMD("maim -s | tee $(xdg-user-dir PICTURES)/$(hostnamectl hostname)_$(date +%s).png | xclip -selection clipboard -t image/png") },
 };
 
 /* button definitions */
